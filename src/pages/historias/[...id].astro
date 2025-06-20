@@ -10,11 +10,15 @@ import Layout from '../../layouts/PostLayout.astro'
 // Data
 import { getCollection, render  } from 'astro:content'
 export async function getStaticPaths() {
-	const blogEntries = await getCollection('blog')
-	return blogEntries.map((entry) => ({
-		params:{ id: decodeURI( entry.id )},
-		props: { entry }
-	}))
+	const blogEntries = await getCollection('historias')
+	return blogEntries.map((entry) => {
+		// Eliminar la extensión .md del id
+		const id = entry.id.replace(/\.md$/, '')
+		return {
+			params: { id },
+			props: { entry }
+		}
+	})
 }
 const { entry } = Astro.props
 const { Content } = await render(entry);

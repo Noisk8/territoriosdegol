@@ -32,10 +32,13 @@ const sortedPosts = allPosts.sort((a: any, b: any) => {
 			<TagNavigation />
 		</Col>
 		{
-			sortedPosts.map((post: any) => (
+			sortedPosts.map((post: any) => {
+				// Asegurarse de que el ID no tenga la extensión .md
+				const postId = post.id.replace(/\.md$/, '')
+				return (
 				<Col span="4">
 					<Post
-						link={`/blog/${post.id}`}
+						link={`/historias/${postId}`}
 						title={post.data.title}
 						subtitle={`By ${post.data.author} on ${new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`}
 						image={post.data.image}
@@ -44,7 +47,7 @@ const sortedPosts = allPosts.sort((a: any, b: any) => {
 						{post.data.description}
 					</Post>
 				</Col>
-			))
+			)})
 		}
 	</Row>
 </Section>
