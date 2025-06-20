@@ -12,10 +12,10 @@ import BlogPosts from '../../../components/blocks/blog/BlogPosts.astro'
 
 // Data
 import { getCollection } from 'astro:content'
-const allPosts = await getCollection('blog')
+const allPosts = await getCollection('historias')
 ---
 
 <Layout>
-	<Hero title="Tags" />
+	<Hero title="Etiquetas" />
 	<BlogPosts data={allPosts} />
 </Layout>
