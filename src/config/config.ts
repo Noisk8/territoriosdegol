@@ -21,13 +21,13 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit by Oxygenna',
+	siteTitle: 'Territorios De GOl',
 	siteDescription:
-		'Foxi is a design and development agency that specializes in creating beautiful and functional websites.',
-	ogImage: '/og.jpg',
+		'Proyecto apoyado por el presupuesto poarticipativo de la ciudad de Medellín',
+	ogImage: '/Pele.jpeg',
 	logo: {
-		src: '/logo.svg',
-		alt: 'Foxi. logo'
+		src: '/Pele.jpeg',
+		alt: 'Territorios De GOl'
 	},
 	canonical: true,
 	noindex: false,
