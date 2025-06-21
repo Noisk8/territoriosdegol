@@ -35,77 +35,66 @@ export interface FooterData {
 
 export const footerNavigationData: FooterData = {
 	footerAbout: {
-		title: 'Foxi.',
+		title: 'Territorios de GOL.',
 		aboutText:
 			'Proyecto apoyado por el presupuesto poarticipativo de la ciudad de Medellín',
 		logo: {
-			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
-			text: 'Foxi.'
+			src: '/741.jpg',
+			alt: 'Territorios de GOL.',
+			text: 'Territorios de GOL.'
 		}
 	},
 	footerColumns: [
-		{
-			category: 'Product',
-			subCategories: [
-				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
-				},
-				{
-					subCategory: 'FAQ',
-					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
-				}
-			]
-		},
-		{
-			category: 'About us',
-			subCategories: [
-				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
-				}
-			]
-		},
-		{
-			category: 'Get in touch',
-			subCategories: [
-				{
-					subCategory: 'Contact',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
-				}
-			]
-		}
+		// {
+		// 	category: 'Product',
+		// 	subCategories: [
+		// 		{
+		// 			subCategory: 'Features',
+		// 			subCategoryLink: '/features'
+		// 		},
+			
+		// 		{
+		// 			subCategory: 'Terms',
+		// 			subCategoryLink: '/terms'
+		// 		}
+		// 	]
+		// },
+		// {
+		// 	category: 'About us',
+		// 	subCategories: [
+		// 		{
+		// 			subCategory: 'About us',
+		// 			subCategoryLink: '/'
+		// 		},
+		// 		{
+		// 			subCategory: 'News',
+		// 			subCategoryLink: '/blog'
+		// 		},
+		// 		{
+		// 			subCategory: 'Careers',
+		// 			subCategoryLink: '/blog'
+		// 		}
+		// 	]
+		// },
+		// {
+		// 	category: 'Get in touch',
+		// 	subCategories: [
+		// 		{
+		// 			subCategory: 'Contact',
+		// 			subCategoryLink: '/contact'
+		// 		},
+		// 		{
+		// 			subCategory: 'Support',
+		// 			subCategoryLink: '/contact'
+		// 		},
+		// 		{
+		// 			subCategory: 'Join us',
+		// 			subCategoryLink: '/contact'
+		// 		}
+		// 	]
+		// }
 	],
 	subFooter: {
-		copywriteText: '© Foxi 2024.'
+		copywriteText: 'Territorios de GOL.'
 	}
 }
