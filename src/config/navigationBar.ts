@@ -18,17 +18,17 @@ export interface NavItem {
 	submenu?: NavSubItem[]
 }
 
-export interface NavAction {
-	name: string
-	link: string
-	style: string
-	size: string
-}
+// export interface NavAction {
+// 	name: string
+// 	link: string
+// 	style: string
+// 	size: string
+// }
 
 export interface NavData {
 	logo: Logo
 	navItems: NavItem[]
-	navActions: NavAction[]
+	// navActions: NavAction[]
 }
 
 export const navigationBarData: NavData = {
@@ -53,5 +53,5 @@ export const navigationBarData: NavData = {
 		// },
 		{ name: 'Contacto', link: '/contact' }
 	],
-	navActions: [{ name: 'Try it now', link: '/', style: 'primary', size: 'lg' }]
+	// navActions: [{ name: 'Historias', link: '/historias', style: 'primary', size: 'lg' }]
 }
