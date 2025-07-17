@@ -33,9 +33,10 @@ const FlipBook = () => {
     const updateSize = () => {
       if (!containerRef.current) return;
       const padding = 32;
-      const headerSpace = 120; // reserve pixels for header/nav
-      const viewportWidth = window.innerWidth * 0.9; // 90% of vw
-      const viewportHeight = window.innerHeight - headerSpace; // remaining visible area
+      const headerEl = document.querySelector('header');
+      const headerSpace = headerEl ? headerEl.offsetHeight + 32 : 120; // nav height + gap
+      const viewportWidth = window.innerWidth * 0.92; // 92% vw
+      const viewportHeight = window.innerHeight - headerSpace;
       const widthFromHeight = viewportHeight / RATIO;
       const width = Math.min(viewportWidth, widthFromHeight);
       const height = Math.round(width * RATIO);
@@ -109,19 +110,19 @@ const FlipBook = () => {
         height={bookSize.h}
         size="stretch"
         minWidth={315}
-        maxWidth={1000}
+        maxWidth={800}
         minHeight={300}
         maxHeight={1200}
         showCover={true}
         mobileScrollSupport={true}
         onFlip={handleFlip}
-        className="shadow-lg"
+        className="shadow-sm rounded border border-neutral-200"
       >
         <Page>
-          <img src="/tdgol.jpeg" alt="Portada" className="w-full h-full object-contain p-2" />
+          <img src="/portada1.png" alt="Portada" className="w-full h-full object-contain p-2" />
         </Page>
         {Array.from({ length: 12 }).map((_, i) => {
-          const bgImages = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"];
+          const bgImages = ["pagina1.png", "pagina2.png", "pagina1.png", "pagina2.png", "pagina3.png", "pagina4.png", "pagina1.png", "pagina2.png", "pagina1.png", "pagina1.png", "pagina2.png", "pagina1.png","tdgol.png"];
           const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
           return (
             <Page key={i + 1} className="relative">
