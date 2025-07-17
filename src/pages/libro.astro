@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FlipBook from "../components/FlipBook.jsx";
+
+const SEO = {
+  title: 'Libro | Territorios de GOL',
+  description: 'Explora las páginas de nuestro libro interactivo con historias y sonidos.'
+};
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+  <div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Libro Interactivo</h1>
+    <FlipBook client:load />
+  </div>
+</Layout>
