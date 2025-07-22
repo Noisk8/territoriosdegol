@@ -119,10 +119,10 @@ const FlipBook = () => {
         className="shadow-sm rounded border border-neutral-200"
       >
         <Page>
-          <img src="/portada1.png" alt="Portada" className="w-full h-full object-contain p-2" />
+          <img src="/PORTADA_FIN.png" alt="Portada" className="w-full h-full object-contain p-2" />
         </Page>
         {Array.from({ length: 12 }).map((_, i) => {
-          const bgImages = ["pagina1.png", "pagina2.png", "pagina1.png", "pagina2.png", "pagina3.png", "pagina4.png", "pagina1.png", "pagina2.png", "pagina1.png", "pagina1.png", "pagina2.png", "pagina1.png","tdgol.png"];
+          const bgImages = ["pagina1.png", "PAGINA_3.png", "HISTORIA1.png", "HISTORIA2.png", "PAGINA_5.png", "PAGINA_6.png", "PAGINA_7.png", "PAGINA_8.png", "PAGINA_9.png", "PAGINA_10.png", "PAGINA_11.png", "PAGINA_12.png","tdgol.png"];
           const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
           return (
             <Page key={i + 1} className="relative">
