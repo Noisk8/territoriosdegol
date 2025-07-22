@@ -14,12 +14,10 @@ const Page = forwardRef(({ children }, ref) => (
 const FlipBook = () => {
   // Array of 6 flip-sounds that will be cycled
   const soundFiles = [
-    "/page-flip1.mp3",
-    "/page-flip2.mp3",
-    "/page-flip3.mp3",
-    "/page-flip4.mp3",
-    "/page-flip5.mp3",
-    "/page-flip6.mp3",
+    "/eldiaque.m4a",
+    "/uniformedenina.m4a",
+    "/miprimer.m4a",
+  
   ];
 
   const soundRefs = useRef([]);
@@ -68,11 +66,9 @@ const FlipBook = () => {
     // console.debug("flip", pageIndex);
     // Determine which sound should play based on page index (0-based)
     const soundMap = [
-      { range: [1, 2], sound: 0 }, // sound 1 for pages 1-2
-      { range: [3, 4], sound: 1 }, // sound 2 for pages 3-4
-      { range: [5, 6], sound: 2 }, // sound 3 for pages 5-6
-      { range: [7, 8], sound: 3 }, // sound 4 for pages 7-8
-      { range: [9, 10], sound: 5 }, // sound 6 for pages 9-10
+      { range: [5, 6], sound: 0 }, // sound 1 (eldiaque.m4a) for pages 5-6
+      { range: [7, 8, 9], sound: 1 }, // sound 2 for pages 7-8
+      { range: [11, 12, 13], sound: 2 }, // sound 3 for pages 9-10
     ];
 
     const mapping = soundMap.find(({ range }) => pageIndex >= range[0] && pageIndex <= range[1]);
@@ -121,8 +117,24 @@ const FlipBook = () => {
         <Page>
           <img src="/PORTADA_FIN.png" alt="Portada" className="w-full h-full object-contain p-2" />
         </Page>
-        {Array.from({ length: 12 }).map((_, i) => {
-          const bgImages = ["pagina1.png", "PAGINA_3.png", "HISTORIA1.png", "HISTORIA2.png", "PAGINA_5.png", "PAGINA_6.png", "PAGINA_7.png", "PAGINA_8.png", "PAGINA_9.png", "PAGINA_10.png", "PAGINA_11.png", "PAGINA_12.png","tdgol.png"];
+        {Array.from({ length: 15 }).map((_, i) => {
+          const bgImages = [
+            "pagina1.png",    // 1
+            "PAGINA_3.png",   // 2
+            "HISTORIA1.png",  // 3
+            "HISTORIA2.png",  // 4
+            "PAGINA_5.png",   // 5
+            "PAGINA_6.png",   // 6
+            "PAGINA_7.png",   // 7
+            "PAGINA_8.png",   // 8
+            "PAGINA_9.png",   // 9
+            null,              // 10 - Vacía
+            "PAGINA_10.png",  // 11 (antes 10)
+            "PAGINA_11.png",  // 12 (antes 11)
+            "PAGINA_12.png",  // 13 (antes 12)
+            null,              // 14 - Vacía
+            "tdgol.png"       // 15 - Contraportada
+          ];
           const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
           return (
             <Page key={i + 1} className="relative">
