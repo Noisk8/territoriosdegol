@@ -17,7 +17,7 @@ const FlipBook = () => {
     "/eldiaque.m4a",
     "/uniformedenina.m4a",
     "/miprimer.m4a",
-  
+
   ];
 
   const soundRefs = useRef([]);
@@ -74,7 +74,7 @@ const FlipBook = () => {
     ];
 
     const mapping = soundMap.find(({ range }) => pageIndex >= range[0] && pageIndex <= range[1]);
-    
+
     // Si no hay mapeo para esta página, detener todos los sonidos
     if (mapping === undefined) {
       soundRefs.current.forEach((a) => {
@@ -86,7 +86,7 @@ const FlipBook = () => {
     }
 
     if (!soundRefs.current.length) return;
-    
+
     // Solo detener y reproducir si el sonido es diferente al actual
     const audio = soundRefs.current[mapping.sound];
     if (currentSoundRef.current !== audio) {
@@ -95,10 +95,10 @@ const FlipBook = () => {
         a.pause();
         a.currentTime = 0;
       });
-      
+
       // Reproducir el nuevo sonido
       if (audio) {
-        audio.play().catch(() => {});
+        audio.play().catch(() => { });
         currentSoundRef.current = audio;
       } else {
         currentSoundRef.current = null;
@@ -115,52 +115,53 @@ const FlipBook = () => {
       {/* Book component */}
       <div ref={containerRef} className="w-full px-4 flex justify-center">
         <HTMLFlipBook
-        width={bookSize.w}
-        height={bookSize.h}
-        size="stretch"
-        minWidth={315}
-        maxWidth={800}
-        minHeight={300}
-        maxHeight={1200}
-        showCover={true}
-        mobileScrollSupport={true}
-        onFlip={handleFlip}
-        className="shadow-sm rounded border border-neutral-200"
-      >
-        <Page>
-          <img src="/PORTADA_FIN.png" alt="Portada" className="w-full h-full object-contain p-2" />
-        </Page>
-        {Array.from({ length: 15 }).map((_, i) => {
-          const bgImages = [
-            "pagina1.png",    // 1
-            "PAGINA_3.png",   // 2
-            "HISTORIA1.png",  // 3
-            "HISTORIA2.png",  // 4
-            "PAGINA_5.png",   // 5
-            "PAGINA_6.png",   // 6
-            "PAGINA_7.png",   // 7
-            "PAGINA_8.png",   // 8
-            "PAGINA_9.png",   // 9
-            null,              // 10 - Vacía
-            "PAGINA_10.png",  // 11 (antes 10)
-            "PAGINA_11.png",  // 12 (antes 11)
-            "PAGINA_12.png",  // 13 (antes 12)
-            null,              // 14 - Vacía
-            "tdgol.png"       // 15 - Contraportada
-          ];
-          const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
-          return (
-            <Page key={i + 1} className="relative">
-              {imgSrc ? (
-                <img src={imgSrc} alt="Página" className="w-full h-full object-cover" />
-              ) : (
-                <span className="absolute inset-0 flex items-center justify-center text-xl">Página {i + 1}</span>
-              )}
-            </Page>
-          );
-        })}
-        <Page>Contraportada</Page>
-      </HTMLFlipBook>
+          width={bookSize.w}
+          height={bookSize.h}
+          size="stretch"
+          minWidth={315}
+          maxWidth={800}
+          minHeight={300}
+          maxHeight={1200}
+          showCover={true}
+          mobileScrollSupport={true}
+          onFlip={handleFlip}
+          className="shadow-sm rounded border border-neutral-200"
+        >
+          <Page>
+            <img src="/PORTADA_FIN.png" alt="Portada" className="w-full h-full object-contain p-2" />
+          </Page>
+          {Array.from({ length: 14 }).map((_, i) => {
+            const bgImages = [
+              "pagina1.png",    // 1
+              "PAGINA_3.png",   // 2
+              "HISTORIA1.png",  // 3
+              "HISTORIA2.png",  // 4
+              "PAGINA_5.png",   // 5
+              "PAGINA_6.png",   // 6
+              "PAGINA_7.png",   // 7
+              "PAGINA_8.png",   // 8
+              "PAGINA_9.png",   // 9
+              "Ana.png",              // 10 - Vacía
+              "PAGINA_10.png",  // 11 (antes 10)
+              "PAGINA_11.png",  // 12 (antes 11)
+              "PAGINA_12.png",  // 13 (antes 12)
+              "Taxi.png",              // 14 - Vacía
+              "Malla.png"       // 15 - Contraportada
+            ];
+            const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
+            return (
+              <Page key={i + 1} className="relative">
+                {imgSrc ? (
+                  <img src={imgSrc} alt="Página" className="w-full h-full object-cover" />
+                ) : (
+                  <span className="absolute inset-0 flex items-center justify-center text-xl">Página {i + 1}</span>
+                )}
+              </Page>
+            );
+          })}
+          <Page>     <img src="/Malla.png" alt="Contraportada" className="w-full h-full object-cover" />
+          </Page>
+        </HTMLFlipBook>
       </div>
     </>
   );
