@@ -56,6 +56,8 @@ const FlipBook = () => {
     }
   }, []);
   const flipCountRef = useRef(0);
+  // Mantener un seguimiento del sonido actual que se está reproduciendo
+  const currentSoundRef = useRef(null);
 
   const handleFlip = (e) => {
     const pageIndex =
@@ -67,31 +69,42 @@ const FlipBook = () => {
     // Determine which sound should play based on page index (0-based)
     const soundMap = [
       { range: [5, 6], sound: 0 }, // sound 1 (eldiaque.m4a) for pages 5-6
-      { range: [7, 8, 9], sound: 1 }, // sound 2 for pages 7-8
-      { range: [11, 12, 13], sound: 2 }, // sound 3 for pages 9-10
+      { range: [7, 10], sound: 1 }, // sound 2 for pages 7-10
+      { range: [11, 14], sound: 2 }, // sound 3 for pages 11-14
     ];
 
     const mapping = soundMap.find(({ range }) => pageIndex >= range[0] && pageIndex <= range[1]);
+    
+    // Si no hay mapeo para esta página, detener todos los sonidos
     if (mapping === undefined) {
-      // stop all sounds if page has no sound
       soundRefs.current.forEach((a) => {
         a.pause();
         a.currentTime = 0;
       });
+      currentSoundRef.current = null;
       return;
     }
 
     if (!soundRefs.current.length) return;
-    // Stop previous sounds
-    soundRefs.current.forEach((a) => {
-      a.pause();
-      a.currentTime = 0;
-    });
-
+    
+    // Solo detener y reproducir si el sonido es diferente al actual
     const audio = soundRefs.current[mapping.sound];
-    if (audio) {
-      audio.play().catch(() => {});
+    if (currentSoundRef.current !== audio) {
+      // Detener todos los sonidos
+      soundRefs.current.forEach((a) => {
+        a.pause();
+        a.currentTime = 0;
+      });
+      
+      // Reproducir el nuevo sonido
+      if (audio) {
+        audio.play().catch(() => {});
+        currentSoundRef.current = audio;
+      } else {
+        currentSoundRef.current = null;
+      }
     }
+    // Si es el mismo sonido, no hacemos nada y dejamos que siga reproduciéndose
   };
 
 
