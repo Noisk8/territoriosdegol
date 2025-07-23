@@ -33,12 +33,12 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/741.jpg',
+		src: '/741.png',
 		alt: 'The tailwind astro theme',
 		text: 'Territorios de GOL'
 	},
 	navItems: [
-		{ name: 'Home', link: '/' },
+		
 
 		{ name: 'Libro', link: '/libro' },
 		// { name: 'Features', link: '/features' },

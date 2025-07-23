@@ -132,7 +132,7 @@ const FlipBook = () => {
           </Page>
           {Array.from({ length: 14 }).map((_, i) => {
             const bgImages = [
-              "pagina1.png",    // 1
+              "PAGINA_1.png",    // 1
               "PAGINA_3.png",   // 2
               "HISTORIA1.png",  // 3
               "HISTORIA2.png",  // 4
@@ -145,7 +145,7 @@ const FlipBook = () => {
               "PAGINA_10.png",  // 11 (antes 10)
               "PAGINA_11.png",  // 12 (antes 11)
               "PAGINA_12.png",  // 13 (antes 12)
-              "Taxi.png",              // 14 - Vacía
+              "Guayos.png",              // 14 - Vacía
               "Malla.png"       // 15 - Contraportada
             ];
             const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;

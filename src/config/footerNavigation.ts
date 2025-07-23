@@ -39,7 +39,7 @@ export const footerNavigationData: FooterData = {
 		aboutText:
 			'Proyecto apoyado por el presupuesto poarticipativo de la ciudad de Medellín',
 		logo: {
-			src: '/741.jpg',
+			src: '/741.png',
 			alt: 'Territorios de GOL.',
 			text: 'Territorios de GOL.'
 		}
