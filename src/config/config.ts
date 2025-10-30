@@ -24,9 +24,9 @@ export const configData: Config = {
 	siteTitle: 'Territorios De GOl',
 	siteDescription:
 		'Proyecto apoyado por el presupuesto poarticipativo de la ciudad de Medellín',
-	ogImage: '/Pele.jpeg',
+	ogImage: '/1.png',
 	logo: {
-		src: '/Pele.jpeg',
+		src: '/1.png',
 		alt: 'Territorios De GOl'
 	},
 	canonical: true,

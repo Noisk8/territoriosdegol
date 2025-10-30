@@ -95,6 +95,7 @@ export const footerNavigationData: FooterData = {
 		// }
 	],
 	subFooter: {
-		copywriteText: 'Territorios de GOL.'
+		copywriteText:
+			'Proyecto beneficiado con recursos del Programa de Planeación de Desarrollo Local y Presupuesto Participativo de Cultura.'
 	}
 }

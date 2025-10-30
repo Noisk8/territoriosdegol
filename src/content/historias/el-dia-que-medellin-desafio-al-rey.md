@@ -3,7 +3,7 @@ title: 'El día que Medellín desafió al Rey'
 pubDate: 2024-05-05T05:00:00Z
 description: 'El club independioente Medellín desafió al Rey Pele'
 author: 'Christos P'
-image: '/blog/Pele.jpeg'
+image: '/blog/1.png'
 tags: ['Medellín', 'Pelé']
 ---
 
@@ -16,7 +16,7 @@ Pero aquel no era simplemente un partido. Era un reto. Una declaración de coraj
 El Santos fue el primero en golpear. Se adelantó en el marcador, y por momentos pareció que el destino estaba sellado. Pero el poderoso equipo local respondió con carácter, con alma, y con ese fervor que solo los verdaderos apasionados comprenden. Empató el encuentro y dejó claro a los visitantes que, en estas montañas, el fútbol también se juega desde lo más profundo del corazón.
 
 
-![Foxi is here.](/blog/pele.jpeg)
+![Foxi is here.](/blog/1.png)
 
 
 
@@ -31,4 +31,4 @@ Efraín "El Caimán" Sánchez, arquero y figura destacada del DIM, se alzó como
 Ese día, Pelé jugó por primera vez en suelo antioqueño. Aunque su presencia se limitó a noventa minutos, dejó una marca eterna en la memoria de la ciudad.
 
 
-![Foxi is here.](/blog/pele.jpeg)
+![Foxi is here.](/blog/1.png)

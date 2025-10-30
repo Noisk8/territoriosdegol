@@ -32,15 +32,15 @@ export interface NavData {
 }
 
 export const navigationBarData: NavData = {
-	logo: {
-		src: '/741.png',
-		alt: 'The tailwind astro theme',
-		text: 'Territorios de GOL'
-	},
-	navItems: [
-		
-
-		{ name: 'Libro', link: '/libro' },
+    logo: {
+        src: '/741.png',
+        alt: 'Territorios de GOL',
+        text: 'Territorios de GOL'
+    },
+		navItems: [
+			// { name: 'Historias', link: '/historias' },
+			{ name: 'Audios', link: '/audio' },
+			{ name: 'Libro', link: '/libro' },
 		// { name: 'Features', link: '/features' },
 		// {
 		// 	name: 'Resources',
@@ -52,7 +52,7 @@ export const navigationBarData: NavData = {
 		// 		{ name: 'Terms', link: '/terms' }
 		// 	]
 		// },
-		{ name: 'Contacto', link: '/contact' }
-	],
-	// navActions: [{ name: 'Historias', link: '/historias', style: 'primary', size: 'lg' }]
-}
+		// { name: 'Contacto', link: '/contact' }
+		],
+		// navActions: [{ name: 'Historias', link: '/historias', style: 'primary', size: 'lg' }]
+	}

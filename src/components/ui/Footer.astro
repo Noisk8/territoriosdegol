@@ -27,24 +27,15 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		</div>
 	</div>
 	<!-- Sub Footer -->
-	<div class="footer__sub">
+	<div class="footer__sub footer__sub--emphasis">
 		<div class="footer__container">
 			<div class="footer__sub-cols">
-				<div class="footer__sub-col">{subFooter.copywriteText}</div>
-				<nav aria-labelledby="footer-social-links-dark" class="footer__sub-col text-right">
-					<h2 class="sr-only" id="footer-social-links-dark">Social Media Links</h2>
-					<ul>
-						<!-- {
-							socialLinks.map((social) => (
-								<li>
-									<a href={social.link} aria-label={social.name}>
-										<Icon name={social.icon} />
-									</a>
-								</li>
-							))
-						} -->
-					</ul>
-				</nav>
+				<div class="footer__sub-col footer__support-text">
+					{subFooter.copywriteText}
+				</div>
+				<div class="footer__sub-col text-right">
+					<img src="/logos/ALCALDIA.png" alt="Alcaldía de Medellín" class="inline-block h-24 w-auto md:h-28 lg:h-32" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -78,7 +69,10 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		@apply col-span-2 first:col-span-4 md:col-span-4 md:first:col-span-8 lg:col-span-2 lg:first:col-span-6 lg:first:max-w-96;
 	}
 	.footer__sub {
-		@apply border-t border-neutral-200 bg-neutral-100 py-4 text-sm text-neutral-600 dark:border-neutral-900 dark:bg-neutral-800/50 dark:text-neutral-400;
+		@apply border-t border-neutral-200 bg-neutral-100 py-6 text-sm text-neutral-600 dark:border-neutral-900 dark:bg-neutral-800/50 dark:text-neutral-400;
+	}
+	.footer__sub--emphasis {
+		@apply text-base md:text-lg lg:text-xl;
 	}
 	.footer__sub ul {
 		@apply flex items-center justify-end gap-6;
@@ -92,5 +86,8 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 
 	.footer__sub-col {
 		@apply col-span-2 md:col-span-4 lg:col-span-6;
+	}
+	.footer__support-text {
+		@apply font-medium leading-7 md:leading-8;
 	}
 </style>
