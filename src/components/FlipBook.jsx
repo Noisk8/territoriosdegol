@@ -12,21 +12,17 @@ const Page = forwardRef(({ children }, ref) => (
 ));
 
 const FlipBook = () => {
-  // Array of 6 flip-sounds that will be cycled
-  const soundFiles = [
-    "/eldiaque.m4a",
-    "/uniformedenina.m4a",
-    "/miprimer.m4a",
-
-  ];
-
-  const soundRefs = useRef([]);
+  const TOTAL_MAGAZINE_PAGES = 63;
+  const magazinePages = Array.from({ length: TOTAL_MAGAZINE_PAGES }, (_, i) => {
+    const pageNumber = String(i + 1).padStart(2, "0");
+    return `/revista_page-${pageNumber}.png`;
+  });
 
   // responsive sizing
   const containerRef = useRef(null);
-  const [bookSize, setBookSize] = useState({ w: 350, h: 455 });
+  const [bookSize, setBookSize] = useState({ w: 350, h: 495 });
 
-  const RATIO = 1.1; // height = width * RATIO (shorter pages)
+  const RATIO = 680.315 / 481.89; // Match PDF aspect ratio to avoid cropping
   useEffect(() => {
     const updateSize = () => {
       if (!containerRef.current) return;
@@ -45,69 +41,6 @@ const FlipBook = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // Create audio elements only on the client to avoid SSR errors
-  useEffect(() => {
-    if (typeof window !== "undefined" && typeof window.Audio !== "undefined") {
-      soundRefs.current = soundFiles.map((src) => {
-        const a = new Audio(src);
-        a.preload = "auto";
-        return a;
-      });
-    }
-  }, []);
-  const flipCountRef = useRef(0);
-  // Mantener un seguimiento del sonido actual que se está reproduciendo
-  const currentSoundRef = useRef(null);
-
-  const handleFlip = (e) => {
-    const pageIndex =
-      (typeof e?.data === "number" ? e.data : undefined) ??
-      e?.data?.page ??
-      e?.data?.pageIndex ??
-      0;
-    // console.debug("flip", pageIndex);
-    // Determine which sound should play based on page index (0-based)
-    const soundMap = [
-      { range: [5, 6], sound: 0 }, // sound 1 (eldiaque.m4a) for pages 5-6
-      { range: [7, 10], sound: 1 }, // sound 2 for pages 7-10
-      { range: [11, 14], sound: 2 }, // sound 3 for pages 11-14
-    ];
-
-    const mapping = soundMap.find(({ range }) => pageIndex >= range[0] && pageIndex <= range[1]);
-
-    // Si no hay mapeo para esta página, detener todos los sonidos
-    if (mapping === undefined) {
-      soundRefs.current.forEach((a) => {
-        a.pause();
-        a.currentTime = 0;
-      });
-      currentSoundRef.current = null;
-      return;
-    }
-
-    if (!soundRefs.current.length) return;
-
-    // Solo detener y reproducir si el sonido es diferente al actual
-    const audio = soundRefs.current[mapping.sound];
-    if (currentSoundRef.current !== audio) {
-      // Detener todos los sonidos
-      soundRefs.current.forEach((a) => {
-        a.pause();
-        a.currentTime = 0;
-      });
-
-      // Reproducir el nuevo sonido
-      if (audio) {
-        audio.play().catch(() => { });
-        currentSoundRef.current = audio;
-      } else {
-        currentSoundRef.current = null;
-      }
-    }
-    // Si es el mismo sonido, no hacemos nada y dejamos que siga reproduciéndose
-  };
-
-
   return (
     <>
 
@@ -124,43 +57,13 @@ const FlipBook = () => {
           maxHeight={1200}
           showCover={true}
           mobileScrollSupport={true}
-          onFlip={handleFlip}
           className="shadow-sm rounded border border-neutral-200"
         >
-          <Page>
-            <img src="/PORTADA_FIN.png" alt="Portada" className="w-full h-full object-contain p-2" />
-          </Page>
-          {Array.from({ length: 14 }).map((_, i) => {
-            const bgImages = [
-              "PAGINA_1.png",    // 1
-              "PAGINA_3.png",   // 2
-              "HISTORIA1.png",  // 3
-              "HISTORIA2.png",  // 4
-              "PAGINA_5.png",   // 5
-              "PAGINA_6.png",   // 6
-              "PAGINA_7.png",   // 7
-              "PAGINA_8.png",   // 8
-              "PAGINA_9.png",   // 9
-              "Ana.png",              // 10 - Vacía
-              "PAGINA_10.png",  // 11 (antes 10)
-              "PAGINA_11.png",  // 12 (antes 11)
-              "PAGINA_12.png",  // 13 (antes 12)
-              "Guayos.png",              // 14 - Vacía
-              "Malla.png"       // 15 - Contraportada
-            ];
-            const imgSrc = bgImages[i] ? `/${bgImages[i]}` : null;
-            return (
-              <Page key={i + 1} className="relative">
-                {imgSrc ? (
-                  <img src={imgSrc} alt="Página" className="w-full h-full object-cover" />
-                ) : (
-                  <span className="absolute inset-0 flex items-center justify-center text-xl">Página {i + 1}</span>
-                )}
-              </Page>
-            );
-          })}
-          <Page>     <img src="/Malla.png" alt="Contraportada" className="w-full h-full object-cover" />
-          </Page>
+          {magazinePages.map((src, index) => (
+            <Page key={src + index}>
+              <img src={src} alt={`Página ${index + 1}`} className="w-full h-full object-contain" />
+            </Page>
+          ))}
         </HTMLFlipBook>
       </div>
     </>
